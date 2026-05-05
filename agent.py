@@ -157,7 +157,6 @@ def run_agent_loop(user_input: str, history: list[dict[str, str]]) -> None:
 
 
 def main() -> None:
-    print(f"--- Welcome to the AI Web Developer CLI ({USER_OS} Detected) ---")
     print("Conversational AI agent with tool use and website cloning.")
     print("Type 'exit' or 'quit' to close the terminal.\n")
 

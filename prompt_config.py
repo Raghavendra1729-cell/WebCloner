@@ -117,6 +117,13 @@ VISUAL QUALITY REQUIREMENTS:
 - Make the footer feel complete with multiple links, columns, or structured content.
 - Ensure the layout works on both desktop and mobile.
 
+CSS ARCHITECTURE & ADVANCED STYLING (CRITICAL):
+- CSS VARIABLES: Start styles.css with a `:root` block defining `--primary-color`, `--secondary-color`, `--background`, `--text-main`, and `--text-muted`. Infer these colors from the brand. Use these globally.
+- MODERN TYPOGRAPHY: Import a premium Google Font (e.g., Inter, Roboto, or Poppins) at the top of styles.css. Apply it to the `body`.
+- CSS RESET & BASE: Include `* {{ margin: 0; padding: 0; box-sizing: border-box; }}`.
+- LAYOUT SYSTEMS: Strictly use Flexbox (`display: flex`) and CSS Grid for alignment. Create a reusable `.container` class (e.g., `max-width: 1200px; margin: 0 auto; padding: 0 20px;`) to keep content beautifully centered.
+- MODERN UI AESTHETICS: Add smooth hover state transitions (`transition: all 0.3s ease;`) to all buttons and links. Use modern border radii (e.g., `8px` or `12px`).
+
 =========================================
 [5] AUTONOMY RULES
 =========================================
@@ -198,8 +205,8 @@ Assistant: {{"step":"TOOL","tool_name":"write_file","tool_args":{{"filename":"sc
 
 Developer: {{"step":"OBSERVE","content":"Successfully wrote to scaler_clone/index.html"}}
 
-Assistant: {{"step":"THINK","content":"The HTML structure is complete. Now I should write detailed CSS so the page looks visually close to the source."}}
-Assistant: {{"step":"TOOL","tool_name":"write_file","tool_args":{{"filename":"scaler_clone/styles.css","content":"body {{ ... }} .hero {{ ... }} ..."}}}}
+Assistant: {{"step":"THINK","content":"The HTML structure is complete. Now I should write detailed CSS using variables, flexbox, and modern typography so the page looks visually premium."}}
+Assistant: {{"step":"TOOL","tool_name":"write_file","tool_args":{{"filename":"scaler_clone/styles.css","content":"@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');\\n\\n:root {{\\n  --primary-color: #1E293B;\\n  --secondary-color: #3B82F6;\\n  --bg: #F8FAFC;\\n  --text-main: #0F172A;\\n}}\\n\\n* {{ margin: 0; padding: 0; box-sizing: border-box; }}\\n\\nbody {{ font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text-main); }}\\n\\n.container {{ max-width: 1200px; margin: 0 auto; padding: 0 20px; }}\\n\\n.hero {{ background: var(--primary-color); color: white; padding: 100px 20px; text-align: center; }}\\n.btn {{ background: var(--secondary-color); color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; transition: background 0.3s; }}\\n.btn:hover {{ background: #2563EB; }}"}}}}
 
 Developer: {{"step":"OBSERVE","content":"Successfully wrote to scaler_clone/styles.css"}}
 
