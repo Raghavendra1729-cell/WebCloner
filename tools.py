@@ -69,7 +69,7 @@ def fetch_website(url: str) -> str:
 
         image_urls = []
         for image in soup.find_all("img", src=True):
-            full_url = urljoin(url, image["src"])
+            full_url = urljoin(url, image["src"]) # type: ignore
             try:
                 image_response = requests.head(full_url, headers=REQUEST_HEADERS, timeout=5, allow_redirects=True)
                 content_type = image_response.headers.get("Content-Type", "").lower()
